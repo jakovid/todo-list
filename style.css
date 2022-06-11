@@ -1,0 +1,19 @@
+.todoContainer {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-template-rows: 1fr 8fr;
+}
+
+#header {
+    background-color: black;
+    color: white;
+    grid-column: span 2;
+}
+
+#todoNav {
+    background-color: lightgray;
+}
+
+#todoBody {
+    background-color: lightblue;
+}
