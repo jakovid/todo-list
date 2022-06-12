@@ -1,9 +1,11 @@
 import { footer } from "./footer";
+import { todo } from "./todo";
 import { header } from "./header";
 (function() {
     var todoModule = {
         init: function() {
             header.buildHeader();
+            todo.buildTodo();
             footer.buildFooter();
             this.cacheDom();
             this.bindEvents();
@@ -11,11 +13,11 @@ import { header } from "./header";
         cacheDom: function() {
             this.el = document.getElementById('todoModule');
             console.log(this.el);
-            this.navContainer = this.el.querySelector('#navContainer');
-            this.addBtn = this.el.querySelector('#addProject');
+            this.todoNav = this.el.querySelector('#todoNav');
+            this.todoNavAdd = this.el.querySelector('#todoNavAdd');
         },
         bindEvents: function() {
-            this.addBtn.onclick = this.addProject;
+            this.todoNavAdd.onclick = this.addProject;
         },
         addProject: function() {
             //create elements

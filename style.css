@@ -12,6 +12,17 @@
     padding: 1rem;
 }
 
+#todoContainer {
+    color: black;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+#todoNav {
+    background-color: lightgreen;
+}
+
 .footerContainer {
     position: absolute;
     bottom: 0;
