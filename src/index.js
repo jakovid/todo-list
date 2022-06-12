@@ -1,6 +1,10 @@
+import { footer } from "./footer";
+import { header } from "./header";
 (function() {
     var todoModule = {
         init: function() {
+            header.buildHeader();
+            footer.buildFooter();
             this.cacheDom();
             this.bindEvents();
         },
