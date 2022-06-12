@@ -1,30 +1,29 @@
-(function(){
-    var todoList = {
-        init: function(){
+(function() {
+    var todoModule = {
+        init: function() {
             this.cacheDom();
             this.bindEvents();
         },
-        cacheDom: function(){
-            this.el = document.getElementById('todoContainer');
+        cacheDom: function() {
+            this.el = document.getElementById('todoModule');
             console.log(this.el);
-            this.navContainer = this.el.getElementById('navContainer');
-            this.addProject = this.el.getElementById('addProject');
-            console.log(this.addProject);
+            this.navContainer = this.el.querySelector('#navContainer');
+            this.addBtn = this.el.querySelector('#addProject');
         },
-        bindEvents: function(){
-            this.addProject.onclick = this.createProject();
+        bindEvents: function() {
+            this.addBtn.onclick = this.addProject;
         },
-        createProject: function(){
-            //create element
+        addProject: function() {
+            //create elements
             let newProject = document.createElement('div');
             //add class
-            newProject.className = "projectItem";
-            //add innertext to elements
-            newProject.innerText = "Test Project";
-            //append project
-            todoList.navContainer.appendChild(newProject);
+            newProject.className = "newProject";
+            //add innertext
+            newProject.innerText = "test Project";
+            //append
+            todoModule.navContainer.appendChild(newProject);
         }
-    }
+    };
 
-    todoList.init();
+    todoModule.init();
 })()

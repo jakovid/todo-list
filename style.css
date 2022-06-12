@@ -1,4 +1,4 @@
-#todoContainer {
+#todoModule {
     display: grid;
     grid-template-columns: 1fr 8fr;
     grid-template-rows: 1fr 8fr;
@@ -12,6 +12,10 @@
 
 #todoNav {
     background-color: lightgray;
+}
+
+#addProject:hover {
+    background-color: white;
 }
 
 #todoBody {
