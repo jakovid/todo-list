@@ -13,7 +13,7 @@ import { header } from "./header";
         cacheDom: function() {
             this.el = document.getElementById('todoModule');
             console.log(this.el);
-            this.todoNav = this.el.querySelector('#todoNav');
+            this.todoNavNew = this.el.querySelector('#todoNavNew');
             this.todoNavAdd = this.el.querySelector('#todoNavAdd');
         },
         bindEvents: function() {
@@ -27,7 +27,7 @@ import { header } from "./header";
             //add innertext
             newProject.innerText = "test Project";
             //append
-            todoModule.navContainer.appendChild(newProject);
+            todoModule.todoNavNew.appendChild(newProject);
         }
     };
 

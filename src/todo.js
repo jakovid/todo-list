@@ -7,6 +7,7 @@ var todo = {
         let todoMain = document.createElement('div');
         let todoNavToday = document.createElement('div');
         let todoNavProjects = document.createElement('div');
+        let todoNavNew = document.createElement('div');
         let todoNavAdd = document.createElement('div');
         //add ids
         todoContainer.id = 'todoContainer';
@@ -14,13 +15,14 @@ var todo = {
         todoMain.id = 'todoMain';
         todoNavToday.id = 'todoNavToday';
         todoNavProjects.id = 'todoNavProjects';
+        todoNavNew.id = 'todoNavNew';
         todoNavAdd.id = 'todoNavAdd';
         //add innertext
         todoNavToday.innerText = "Today";
         todoNavProjects.innerText = "Projects";
         todoNavAdd.innerText = "Add Projects";
         //append elements
-        todoNav.append(todoNavToday,todoNavProjects,todoNavAdd);
+        todoNav.append(todoNavToday,todoNavProjects,todoNavNew, todoNavAdd);
         todoContainer.append(todoNav,todoMain);
         this.todoModule.appendChild(todoContainer);
         console.log(todoContainer);
