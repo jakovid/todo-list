@@ -26,6 +26,20 @@ var todo = {
         todoContainer.append(todoNav,todoMain);
         this.todoModule.appendChild(todoContainer);
         console.log(todoContainer);
+    },
+    addProject: function() {
+        //find nav
+        let projectList = document.getElementById('todoNavNew');
+        //create element
+        let newProject = document.createElement('div');
+        //add class
+        console.log('add project test');
+        //add inner text
+        newProject.innerText = "test";
+        //append
+        projectList.appendChild(newProject);
+        console.log('yolo');
+        
     }
 }
 
