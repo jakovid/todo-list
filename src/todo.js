@@ -73,6 +73,10 @@ var todo = {
         todoNavAdd.innerText = "Add Projects";
         //append element
         newContainer.appendChild(todoNavAdd);
+        //add event listener
+        todoNavAdd.addEventListener('click',this.projectInput);
+        console.log('event added back babY!');
+        
 
 
     }
