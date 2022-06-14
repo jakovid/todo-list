@@ -39,22 +39,32 @@ var todo = {
         let inputBtnAdd = document.createElement('button');
         let inputBtnCancel = document.createElement('button');
         let inputNewBox = document.createElement('div');
-
         //add id
         inputBtnCancel.id = "cancelBtn";
-
         //create innertext
         inputBtnAdd.innerText = "Add";
         inputBtnCancel.innerText = "Cancel";
-
         //appened input elements
         inputNewBox.append(inputNew,inputBtnAdd,inputBtnCancel);
         newContainer.appendChild(inputNewBox);
-        console.log('input test!');        
+        console.log('input test!');
+        //cache new btns
+        this.bindBtns();
+        // this.bindBtns;
+    },
+    bindBtns: function() {
+        //cache new btns
+        console.log('precache');
+        let cancelBtn = document.getElementById('cancelBtn');
+        console.log(cancelBtn);
+        cancelBtn.addEventListener("click",this.cancelAdd);
+        console.log('added eventlistener');
+
     },
     cancelAdd: function(){
-        //clear out input section
-        this.projectInput.newContainer.innerHTML = '';
+        //delete add button
+        let newContainer = document.getElementById('todoNavAddBox');
+        newContainer.innerHTML = '';
         //create element
         let todoNavAdd = document.createElement('div');
         //add ids
@@ -62,7 +72,7 @@ var todo = {
         //add innertext
         todoNavAdd.innerText = "Add Projects";
         //append element
-        this.projectInput.newContainer.appendChild(todoNavAdd);
+        newContainer.appendChild(todoNavAdd);
 
 
     }

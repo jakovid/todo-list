@@ -14,9 +14,9 @@ import { header } from "./header";
             this.el = document.getElementById('todoModule');
             console.log(this.el);
             this.todoNavAdd = this.el.querySelector('#todoNavAdd');
-            this.cancelBtn = this.el.querySelector('#cancelBtn');
         },
         bindEvents: function() {
+            //need to move this to the todo.js
             this.todoNavAdd.onclick = this.projectInput;
         },
         projectInput: function() {
