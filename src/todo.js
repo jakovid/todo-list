@@ -49,7 +49,7 @@ var todo = {
         newContainer.appendChild(inputNewBox);
         console.log('input test!');
         //cache new btns
-        this.bindBtns();
+        todo.bindBtns();
         // this.bindBtns;
     },
     bindBtns: function() {
@@ -74,7 +74,9 @@ var todo = {
         //append element
         newContainer.appendChild(todoNavAdd);
         //add event listener
-        todoNavAdd.addEventListener('click',this.projectInput);
+        let navAddBind = document.getElementById('todoNavAdd');
+        console.log(navAddBind);
+        navAddBind.addEventListener('click',todo.projectInput);
         console.log('event added back babY!');
 
     }
