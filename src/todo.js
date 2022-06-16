@@ -76,8 +76,6 @@ var todo = {
         //add event listener
         todoNavAdd.addEventListener('click',this.projectInput);
         console.log('event added back babY!');
-        
-
 
     }
 }
