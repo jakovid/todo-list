@@ -59,7 +59,6 @@ var todo = {
         console.log(cancelBtn);
         cancelBtn.addEventListener("click",this.cancelAdd);
         console.log('added eventlistener');
-
     },
     cancelAdd: function(){
         //delete add button
