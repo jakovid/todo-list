@@ -23,6 +23,10 @@
     background-color: lightgreen;
 }
 
+#todoNavAdd:hover {
+    background-color: aliceblue;
+}
+
 .footerContainer {
     position: absolute;
     bottom: 0;
