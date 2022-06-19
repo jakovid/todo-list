@@ -9,7 +9,7 @@ var todo = {
         let todoNavProjects = document.createElement('div');
         let todoNavNew = document.createElement('div');
         let todoNavAddBox = document.createElement('div');
-        let todoNavAdd = document.createElement('div');
+        // let todoNavAdd = document.createElement('div');
         //add ids
         todoContainer.id = 'todoContainer';
         todoNav.id = 'todoNav';
@@ -18,16 +18,17 @@ var todo = {
         todoNavProjects.id = 'todoNavProjects';
         todoNavNew.id = 'todoNavNew';
         todoNavAddBox.id = 'todoNavAddBox';
-        todoNavAdd.id = 'todoNavAdd';
+        // todoNavAdd.id = 'todoNavAdd';
         //add innertext
         todoNavToday.innerText = "Today";
         todoNavProjects.innerText = "Projects";
-        todoNavAdd.innerText = "Add Projects";
+        // todoNavAdd.innerText = "Add Projects";
         //append elements
-        todoNavAddBox.appendChild(todoNavAdd);
+        // todoNavAddBox.appendChild(todoNavAdd);
         todoNav.append(todoNavToday,todoNavProjects,todoNavNew,todoNavAddBox);
         todoContainer.append(todoNav,todoMain);
         this.todoModule.appendChild(todoContainer);
+        todo.buildAddBtn();
         console.log(todoContainer);
     },
     projectInput: function() {
@@ -64,7 +65,10 @@ var todo = {
         //delete add button
         let newContainer = document.getElementById('todoNavAddBox');
         newContainer.innerHTML = '';
-        //create element
+        todo.buildAddBtn();
+    },
+    buildAddBtn: function() {
+        let newContainer = document.getElementById('todoNavAddBox');
         let todoNavAdd = document.createElement('div');
         //add ids
         todoNavAdd.id = 'todoNavAdd';
@@ -77,7 +81,6 @@ var todo = {
         console.log(navAddBind);
         navAddBind.addEventListener('click',todo.projectInput);
         console.log('event added back babY!');
-
     }
 }
 
