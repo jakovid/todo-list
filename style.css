@@ -21,6 +21,7 @@
 
 #todoNav {
     background-color: lightgreen;
+    padding: 1rem;
 }
 
 #todoNavAdd:hover {
