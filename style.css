@@ -50,6 +50,11 @@
     font-weight: bold;
 }
 
+#addBtn {
+    color: black;
+    padding:0.5rem;
+}
+
 /* todo List */
 
 .todoList {
