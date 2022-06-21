@@ -1,1 +1,1 @@
-(()=>{"use strict";document.getElementById("todoModule"),document.getElementById("todoModule"),document.getElementById("todoModule")})();
+({init:function(){this.cacheDom()},cacheDom:function(){this.el=document.getElementById("todoModule")}}).init();

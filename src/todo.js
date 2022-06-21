@@ -1,7 +1,9 @@
 var todo = {
-    todoModule: document.getElementById('todoModule'),
     buildTodo: function() {
-    }
+    },
+    cacheDom:function() {
+        this.el = document.getElementById('todoModule');
+    },
 }
 
 export { todo };
