@@ -19,11 +19,11 @@
             //add innerText
             addBtn.innerText = 'Add New Project';
             //add event listener
-            addBtn.addEventListener('click',todoModule.addNewProject);
+            addBtn.addEventListener('click',todoModule.openProjectInput);
             //append element
             todoModule.addProjectsBox.appendChild(addBtn);
         },
-        addNewProject: function() {
+        openProjectInput: function() {
             //bye bye add new project
             todoModule.addProjectsBox.innerHTML = '';
             //create elements
@@ -40,9 +40,17 @@
             cancelAdd.innerText = 'Cancel';
             //add eventListners
             cancelAdd.addEventListener('click',todoModule.addProjectBtn);
+            confirmAdd.addEventListener('click',todoModule.addInputProject);
             //append
             btnBox.append(confirmAdd,cancelAdd);
             todoModule.addProjectsBox.append(projectInput,btnBox);
+        },
+        addInputProject: function() {
+            let newProject = document.createElement('div');
+            newProject.innerText = document.querySelector('.projectInput').value;
+            todoModule.addProjectsBox.innerHTML = '';
+            todoModule.newProjects.append(newProject);
+            todoModule.addProjectBtn();
         }
 
     };
