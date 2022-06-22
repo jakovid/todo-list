@@ -35,7 +35,7 @@
 
 .listCount {
     display: flex;
-    background-color: black;
+    background-color: darkblue;
     color: white;
     width: 1.5rem;
     height: 1.5rem;
@@ -58,7 +58,7 @@
 /* todo List */
 
 .todoList {
-    background-color: blue;
+    background-color: white;
 }
 
 /* footer */
