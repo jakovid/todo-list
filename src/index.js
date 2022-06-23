@@ -46,8 +46,19 @@
             todoModule.addProjectsBox.append(projectInput,btnBox);
         },
         addInputProject: function() {
+            //create elements
             let newProject = document.createElement('div');
-            newProject.innerText = document.querySelector('.projectInput').value;
+            let newProjectName = document.createElement('div');
+            let newProjectCount = document.createElement('div');
+            //add class
+            newProject.className = 'project';
+            newProjectName.className = 'listName';
+            newProjectCount.className = 'listCount';
+            // inner html
+            newProjectName.innerText = document.querySelector('.projectInput').value;
+            newProjectCount.innerText = '2';
+            //append items
+            newProject.append(newProjectName,newProjectCount);
             todoModule.addProjectsBox.innerHTML = '';
             todoModule.newProjects.append(newProject);
             todoModule.addProjectBtn();
