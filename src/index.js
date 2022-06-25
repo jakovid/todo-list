@@ -4,11 +4,19 @@
         init: function() {
             this.cacheDom();
             this.addProjectBtn();
+            this.bindEvents();
         },
         cacheDom: function(){
             this.el = document.getElementById('todoModule');
             this.newProjects = this.el.querySelector('.newProjects');
-            this.addProjectsBox = this.el.querySelector('.addProjectBox')
+            this.addProjectsBox = this.el.querySelector('.addProjectBox');
+            this.todoList = this.el.querySelector('#todoList');
+            this.listNames = this.el.querySelectorAll('.listName');
+        },
+        bindEvents: function() {
+            this.listNames.forEach(div => {
+                div.addEventListener('click',this.createTodoMain);
+            });
         },
         addProjectBtn: function(){
             todoModule.addProjectsBox.innerHTML = '';
@@ -56,12 +64,25 @@
             newProjectCount.className = 'listCount';
             // inner html
             newProjectName.innerText = document.querySelector('.projectInput').value;
-            newProjectCount.innerText = '3';
+            newProjectCount.innerText = '0';
             //append items
             newProject.append(newProjectName,newProjectCount);
             todoModule.addProjectsBox.innerHTML = '';
             todoModule.newProjects.append(newProject);
             todoModule.addProjectBtn();
+        },
+        createTodoMain: function() {
+            todoModule.todoList.innerHTML = '';
+            //create element
+            let todoMainTitle = document.createElement('div');
+            //add class
+            todoMainTitle.className = 'mainTitle';
+            //add innerText
+            todoMainTitle.innerText = this.innerText;
+            //append
+            todoModule.todoList.append(todoMainTitle);
+            console.log(todoMainTitle);
+
         }
 
     };
