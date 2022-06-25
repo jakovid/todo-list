@@ -56,7 +56,7 @@
             newProjectCount.className = 'listCount';
             // inner html
             newProjectName.innerText = document.querySelector('.projectInput').value;
-            newProjectCount.innerText = '2';
+            newProjectCount.innerText = '3';
             //append items
             newProject.append(newProjectName,newProjectCount);
             todoModule.addProjectsBox.innerHTML = '';
