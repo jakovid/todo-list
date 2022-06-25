@@ -70,6 +70,8 @@
             todoModule.addProjectsBox.innerHTML = '';
             todoModule.newProjects.append(newProject);
             todoModule.addProjectBtn();
+            todoModule.cacheDom();
+            todoModule.bindEvents();
         },
         createTodoMain: function() {
             todoModule.todoList.innerHTML = '';
