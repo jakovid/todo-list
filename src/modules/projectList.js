@@ -1,5 +1,5 @@
-var todo = {
-    buildTodo: function() {
+var projectList = {
+    buildProjectList: function() {
     },
     cacheDom:function() {
         this.el = document.getElementById('todoModule');
