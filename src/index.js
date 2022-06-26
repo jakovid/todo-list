@@ -6,6 +6,7 @@ import { footer } from "./modules/footer";
     var todoModule = {
         init: function() {
             header.buildHeader();
+            footer.buildFooter();
         },
         cacheDom: function(){
         },
