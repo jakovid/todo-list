@@ -10,6 +10,7 @@ var projectList = {
         this.defaultProjects = this.projectListBox.querySelector('#defaultProjects');
         this.userProjects = this.projectListBox.querySelector('#userProjects');
         this.inputProjects = this.projectListBox.querySelector('#inputProjects');
+        this.todoList = document.getElementById('todoList');
     },
     createDefaultProject: function(name) {
         //create elements
@@ -89,8 +90,7 @@ var projectList = {
         projectList.addProjectBtn();
     },
     populateTodo: function() {
-        let todoList = document.getElementById('todoList');
-        todoList.innerText = this.innerText;
+        projectList.todoList.innerText = this.innerText;
     }
 
 }
