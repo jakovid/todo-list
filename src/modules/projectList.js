@@ -23,6 +23,8 @@ var projectList = {
         //add innerText
         projectName.innerText = name;
         projectCount.innerText = "2";
+        //bind events
+        projectName.onclick = projectList.populateTodo;
         //append items
         project.append(projectName,projectCount);
         this.defaultProjects.append(project);
@@ -85,6 +87,10 @@ var projectList = {
         // this.cacheDom();
         projectList.createUserProject(document.getElementById('newProjectInput').value);
         projectList.addProjectBtn();
+    },
+    populateTodo: function() {
+        let todoList = document.getElementById('todoList');
+        todoList.innerText = this.innerText;
     }
 
 }
