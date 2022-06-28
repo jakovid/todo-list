@@ -1,12 +1,10 @@
 var header = {
-    todoModule: document.getElementById('todoModule'),
+    headerBox: document.getElementById('headerBox'),
     buildHeader: function() {
         //create elements
-        let headerBox = document.createElement('div');
         let headerLogo = document.createElement('img');
         let headerName = document.createElement('div');
         //add id
-        headerBox.id = 'headerBox';
         headerLogo.id = 'headerLogo';
         headerName.id = "headerName";
         //add innertext
@@ -15,7 +13,6 @@ var header = {
         headerLogo.src = ""
         //append elements
         headerBox.append(headerLogo,headerName);
-        this.todoModule.appendChild(headerBox);
     }
 }
 
