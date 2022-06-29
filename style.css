@@ -57,6 +57,11 @@
     margin-top: 0.5rem;
 }
 
+.projectTitle:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
 /* todo List */
 
 
