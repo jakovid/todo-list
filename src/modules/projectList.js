@@ -2,7 +2,7 @@ var projectList = {
     buildProjectList: function() {
         this.cacheDom();
         this.createDefaultProject('Today');
-        this.createDefaultProject('Week');
+        this.createDefaultProject('This Week');
         this.addProjectBtn();
     },
     cacheDom: function() {
