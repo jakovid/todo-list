@@ -1,3 +1,5 @@
+import { todoList } from "./todoList";
+
 var projectList = {
     buildProjectList: function() {
         this.cacheDom();
@@ -91,6 +93,7 @@ var projectList = {
     },
     populateTodo: function() {
         projectList.todoList.innerText = this.innerText;
+        
         //figure out how to create array
     }
 
