@@ -48,13 +48,18 @@
     padding-top: 1rem;
 }
 
-#addProjectBtn {
+#addProjectBtn, #todoBtn {
     background-color: white;
-    padding: 0.5rem;
     font-size: 0.75rem;
     text-align: center;
     border-radius: 1rem;
     margin-top: 0.5rem;
+    width: fit-content;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+#addProjectBtn:hover, #todoBtn:hover {
+    cursor: pointer;
 }
 
 .projectTitle:hover {
@@ -64,6 +69,10 @@
 
 /* todo List */
 
+#todoList {
+    padding: 2rem;
+    background-color: lightgray;
+}
 
 /* footer */
 

@@ -45,6 +45,8 @@ var projectList = {
         //add innerText
         projectName.innerText = name;
         projectCount.innerText = "2";
+        //bind events
+        projectName.onclick = projectList.populateTodo;
         //append items
         project.append(projectName,projectCount);
         this.userProjects.append(project);
@@ -92,9 +94,29 @@ var projectList = {
         projectList.addProjectBtn();
     },
     populateTodo: function() {
-        projectList.todoList.innerText = this.innerText;
+        projectList.todoList.innerHTML = '';
+        //create elements
+        let todoTitle = document.createElement('h1');
+        //innerText
+        todoTitle.innerText = this.innerText;
+        //append
+        projectList.todoList.append(todoTitle);
         
         //figure out how to create array
+
+        //add new todo button
+        projectList.addTodoBtn();
+    },
+    addTodoBtn: function () {
+        //create element
+        let todoBtn = document.createElement('div');
+        //add id
+        todoBtn.id = 'todoBtn';
+        //add innerText
+        todoBtn.innerText = 'Add New Todo Item';
+        //append
+        projectList.todoList.append(todoBtn);
+
     }
 
 }
