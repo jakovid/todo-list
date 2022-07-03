@@ -25,13 +25,17 @@ var projectList = {
         projectCount.classList = "projectCount";
         //add innerText
         projectName.innerText = name;
-        projectCount.innerText = "2";
+        projectName.id = name;
+        projectName.value = name;
+        projectCount.innerText = "0";
         //bind events
         projectName.onclick = projectList.populateTodo;
         //append items
         project.append(projectName,projectCount);
         this.defaultProjects.append(project);
         this.cacheDom();
+        //get element
+        console.log(document.getElementById(name).value);
     },
     createUserProject: function(name) {
         //create elements
@@ -44,7 +48,8 @@ var projectList = {
         projectCount.classList = "projectCount";
         //add innerText
         projectName.innerText = name;
-        projectCount.innerText = "2";
+        projectName.id = name;
+        projectCount.innerText = "0";
         //bind events
         projectName.onclick = projectList.populateTodo;
         //append items
@@ -118,6 +123,10 @@ var projectList = {
         projectList.todoList.append(todoBtn);
 
     }
+
+}
+
+var todoLists = {
 
 }
 
