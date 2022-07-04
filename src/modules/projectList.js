@@ -102,10 +102,13 @@ var projectList = {
         projectList.todoList.innerHTML = '';
         //create elements
         let todoTitle = document.createElement('h1');
+        let todoBody = document.createElement('div');
         //innerText
         todoTitle.innerText = this.innerText;
+        //ad IDs
+        todoBody.id = "todoBody";
         //append
-        projectList.todoList.append(todoTitle);
+        projectList.todoList.append(todoTitle,todoBody);
         
         //figure out how to create array
 
@@ -119,9 +122,16 @@ var projectList = {
         todoBtn.id = 'todoBtn';
         //add innerText
         todoBtn.innerText = 'Add New Todo Item';
+        //bind events
+        todoBtn.addEventListener('click', this.addNewTodo);
         //append
         projectList.todoList.append(todoBtn);
 
+    },
+    addNewTodo: function() {
+        let testDiv = document.createElement('div');
+        testDiv.innerText = 'test';
+        document.getElementById('todoBody').append(testDiv);
     }
 
 }
