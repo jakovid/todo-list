@@ -103,12 +103,14 @@ var projectList = {
         //create elements
         let todoTitle = document.createElement('h1');
         let todoBody = document.createElement('div');
+        let todoInputBox = document.createElement('div');
         //innerText
         todoTitle.innerText = this.innerText;
         //ad IDs
         todoBody.id = "todoBody";
+        todoInputBox.id = "todoInputBox";
         //append
-        projectList.todoList.append(todoTitle,todoBody);
+        projectList.todoList.append(todoTitle,todoBody, todoInputBox);
         
         //figure out how to create array
 
@@ -116,6 +118,7 @@ var projectList = {
         projectList.addTodoBtn();
     },
     addTodoBtn: function () {
+        document.getElementById('todoInputBox').innerHTML = '';
         //create element
         let todoBtn = document.createElement('div');
         //add id
@@ -123,15 +126,25 @@ var projectList = {
         //add innerText
         todoBtn.innerText = 'Add New Todo Item';
         //bind events
-        todoBtn.addEventListener('click', this.addNewTodo);
+        todoBtn.addEventListener('click', projectList.inputNewTodo);
         //append
-        projectList.todoList.append(todoBtn);
+        document.getElementById('todoInputBox').append(todoBtn);
 
     },
-    addNewTodo: function() {
-        let testDiv = document.createElement('div');
-        testDiv.innerText = 'test';
-        document.getElementById('todoBody').append(testDiv);
+    inputNewTodo: function() {
+        document.getElementById('todoInputBox').innerHTML = '';
+        //create elements
+        let todoInput = document.createElement('input');
+        let todoConfirm = document.createElement('button');
+        let todoCancel = document.createElement('button');
+        //id for elements
+        todoConfirm.innerText = 'Add Todo';
+        todoCancel.innerText = 'Cancel';
+        //bind events
+        todoCancel.addEventListener('click', projectList.addTodoBtn);
+        //append
+        document.getElementById('todoInputBox').append(todoInput,todoConfirm,todoCancel);
+        
     }
 
 }
