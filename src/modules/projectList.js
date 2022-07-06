@@ -138,13 +138,30 @@ var projectList = {
         let todoConfirm = document.createElement('button');
         let todoCancel = document.createElement('button');
         //id for elements
+        todoInput.id = 'todoInput';
+        //add innerText
         todoConfirm.innerText = 'Add Todo';
         todoCancel.innerText = 'Cancel';
         //bind events
         todoCancel.addEventListener('click', projectList.addTodoBtn);
+        todoConfirm.addEventListener('click', projectList.createNewTodo);
         //append
         document.getElementById('todoInputBox').append(todoInput,todoConfirm,todoCancel);
+    },
+    createNewTodo: function(todoName) {
+        //create elements
+        let newTodoBox = document.createElement('div');
+        let newTodoName = document.createElement('div');
+        // add innerText
+        newTodoName.innerText = todoName;
+        //append
+        newTodoBox.append(newTodoName);
+        document.getElementById('todoBody').append(newTodoBox);
         
+    },
+    addNewTodo: function() {
+        projectList.createNewTodo(document.getElementById('todoInput').value);
+        projectList.addTodoBtn;
     }
 
 }
