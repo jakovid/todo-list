@@ -157,7 +157,6 @@ var projectList = {
         //append
         newTodoBox.append(newTodoName);
         document.getElementById('todoBody').append(newTodoBox);
-        
     },
     addNewTodo: function() {
         projectList.createNewTodo(document.getElementById('todoInput').value);
