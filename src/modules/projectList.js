@@ -160,7 +160,7 @@ var projectList = {
     },
     addNewTodo: function() {
         projectList.createNewTodo(document.getElementById('todoInput').value);
-        projectList.addTodoBtn;
+        projectList.addTodoBtn();
     }
 
 }
