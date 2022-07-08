@@ -144,7 +144,7 @@ var projectList = {
         todoCancel.innerText = 'Cancel';
         //bind events
         todoCancel.addEventListener('click', projectList.addTodoBtn);
-        todoConfirm.addEventListener('click', projectList.createNewTodo);
+        todoConfirm.addEventListener('click', projectList.addNewTodo);
         //append
         document.getElementById('todoInputBox').append(todoInput,todoConfirm,todoCancel);
     },
