@@ -49,7 +49,7 @@ var projectList = {
         //add innerText
         projectName.innerText = name;
         projectName.id = name;
-        projectCount.innerText = "0";
+        projectCount.innerText = "1";
         //bind events
         projectName.onclick = projectList.populateTodo;
         //append items
