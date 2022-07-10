@@ -74,6 +74,12 @@
     background-color: lightgray;
 }
 
+.todoBox {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 /* footer */
 
 #footerBox {

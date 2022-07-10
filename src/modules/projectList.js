@@ -152,10 +152,15 @@ var projectList = {
         //create elements
         let newTodoBox = document.createElement('div');
         let newTodoName = document.createElement('div');
+        let newTodoComplete = document.createElement('input');
         // add innerText
         newTodoName.innerText = todoName;
+        //add class
+        newTodoBox.className = 'todoBox';
+        //add type
+        newTodoComplete.type = 'radio';
         //append
-        newTodoBox.append(newTodoName);
+        newTodoBox.append(newTodoName,newTodoComplete);
         document.getElementById('todoBody').append(newTodoBox);
     },
     addNewTodo: function() {
