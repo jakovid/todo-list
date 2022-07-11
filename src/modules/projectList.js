@@ -27,7 +27,7 @@ var projectList = {
         projectName.innerText = name;
         projectName.id = name;
         projectName.value = name;
-        projectCount.innerText = "0";
+        projectCount.innerText = "3";
         //bind events
         projectName.onclick = projectList.populateTodo;
         //append items
