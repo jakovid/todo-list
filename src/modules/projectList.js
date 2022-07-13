@@ -7,6 +7,10 @@ var projectList = {
         this.createDefaultProject('This Week');
         this.addProjectBtn();
     },
+    defaultProjectArrays: [
+        ['Today', 'Build Apple'],
+        ['This Week', 'Jump in a cannon']
+    ],
     cacheDom: function() {
         this.projectListBox = document.getElementById('projectList');
         this.defaultProjects = this.projectListBox.querySelector('#defaultProjects');
@@ -97,6 +101,7 @@ var projectList = {
         // this.cacheDom();
         projectList.createUserProject(document.getElementById('newProjectInput').value);
         projectList.addProjectBtn();
+        console.log(projectList.defaultProjectArrays[0][1]);
     },
     populateTodo: function() {
         projectList.todoList.innerHTML = '';
