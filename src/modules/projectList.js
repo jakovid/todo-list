@@ -3,8 +3,7 @@ import { todoList } from "./todoList";
 var projectList = {
     buildProjectList: function() {
         this.cacheDom();
-        this.createDefaultProject('Today');
-        this.createDefaultProject('This Week');
+        this.createDefaultProjects();
         this.addProjectBtn();
     },
     defaultProjectArrays: [
@@ -18,28 +17,28 @@ var projectList = {
         this.inputProjects = this.projectListBox.querySelector('#inputProjects');
         this.todoList = document.getElementById('todoList');
     },
-    createDefaultProject: function(name) {
-        //create elements
-        let project = document.createElement('div');
-        let projectName = document.createElement('div');
-        let projectCount = document.createElement('div');
-        //add classnames
-        project.classList = "project";
-        projectName.classList = "projectTitle";
-        projectCount.classList = "projectCount";
-        //add innerText
-        projectName.innerText = name;
-        projectName.id = name;
-        projectName.value = name;
-        projectCount.innerText = "0";
-        //bind events
-        projectName.onclick = projectList.populateTodo;
-        //append items
-        project.append(projectName,projectCount);
-        this.defaultProjects.append(project);
+    createDefaultProjects: function() {
+        for (let i = 0; i < projectList.defaultProjectArrays.length; i++) {
+            //create elements
+            let project = document.createElement('div');
+            let projectName = document.createElement('div');
+            let projectCount = document.createElement('div');
+            //add classnames
+            project.classList = "project";
+            projectName.classList = "projectTitle";
+            projectCount.classList = "projectCount";
+            //add innerText
+            projectName.innerText = projectList.defaultProjectArrays[i][0];
+            projectName.id = projectList.defaultProjectArrays[i][0];
+            projectName.value = i;
+            projectCount.innerText = projectList.defaultProjectArrays[i].length-1;
+            //bind events
+            projectName.onclick = projectList.populateTodo;
+            //append items
+            project.append(projectName,projectCount);
+            projectList.defaultProjects.append(project);
+        };
         this.cacheDom();
-        //get element
-        console.log(document.getElementById(name).value);
     },
     createUserProject: function(name) {
         //create elements
@@ -101,7 +100,7 @@ var projectList = {
         // this.cacheDom();
         projectList.createUserProject(document.getElementById('newProjectInput').value);
         projectList.addProjectBtn();
-        console.log(projectList.defaultProjectArrays[0][1]);
+        console.log(projectList.defaultProjectArrays.length);
     },
     populateTodo: function() {
         projectList.todoList.innerHTML = '';
