@@ -6,9 +6,9 @@ var projectList = {
         this.createDefaultProjects();
         this.addProjectBtn();
     },
-    defaultProjectArrays: [
+    projectArrays: [
         ['Today', 'Build Apple'],
-        ['This Week', 'Jump in a cannon']
+        ['This Week', 'Jump in a cannon', 'Kiss a frog']
     ],
     cacheDom: function() {
         this.projectListBox = document.getElementById('projectList');
@@ -18,7 +18,7 @@ var projectList = {
         this.todoList = document.getElementById('todoList');
     },
     createDefaultProjects: function() {
-        for (let i = 0; i < projectList.defaultProjectArrays.length; i++) {
+        for (let i = 0; i < 2; i++) {
             //create elements
             let project = document.createElement('div');
             let projectName = document.createElement('div');
@@ -28,12 +28,12 @@ var projectList = {
             projectName.classList = "projectTitle";
             projectCount.classList = "projectCount";
             //add innerText
-            projectName.innerText = projectList.defaultProjectArrays[i][0];
-            projectName.id = projectList.defaultProjectArrays[i][0];
+            projectName.innerText = projectList.projectArrays[i][0];
+            projectName.id = projectList.projectArrays[i][0];
             projectName.value = i;
-            projectCount.innerText = projectList.defaultProjectArrays[i].length-1;
+            projectCount.innerText = projectList.projectArrays[i].length-1;
             //bind events
-            projectName.onclick = projectList.populateTodo;
+            projectName.onclick = projectList.populateMain;
             //append items
             project.append(projectName,projectCount);
             projectList.defaultProjects.append(project);
@@ -54,7 +54,7 @@ var projectList = {
         projectName.id = name;
         projectCount.innerText = "0";
         //bind events
-        projectName.onclick = projectList.populateTodo;
+        projectName.onclick = projectList.populateMain;
         //append items
         project.append(projectName,projectCount);
         this.userProjects.append(project);
@@ -102,24 +102,30 @@ var projectList = {
         projectList.addProjectBtn();
         console.log(projectList.defaultProjectArrays.length);
     },
-    populateTodo: function() {
+    populateMain: function() {
         projectList.todoList.innerHTML = '';
         //create elements
         let todoTitle = document.createElement('h1');
         let todoBody = document.createElement('div');
         let todoInputBox = document.createElement('div');
         //innerText
-        todoTitle.innerText = this.innerText;
+        todoTitle.innerText = projectList.projectArrays[this.value][0];
         //ad IDs
         todoBody.id = "todoBody";
         todoInputBox.id = "todoInputBox";
         //append
         projectList.todoList.append(todoTitle,todoBody, todoInputBox);
-        
-        //figure out how to create array
-
+        //populate todo list
+        projectList.populateTodoList(this.value);
         //add new todo button
         projectList.addTodoBtn();
+    },
+    populateTodoList: function(projectNumber) {
+        for (let i = 1; i < this.projectArrays[projectNumber].length; i++) {
+            let todoItem = document.createElement('div');
+            todoItem.innerText = projectList.projectArrays[projectNumber][i];
+            document.getElementById('todoBody').append(todoItem);
+        }
     },
     addTodoBtn: function () {
         document.getElementById('todoInputBox').innerHTML = '';
