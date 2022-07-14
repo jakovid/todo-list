@@ -110,7 +110,9 @@ var projectList = {
         let todoInputBox = document.createElement('div');
         //innerText
         todoTitle.innerText = projectList.projectArrays[this.value][0];
+        todoTitle.value = this.value;
         //ad IDs
+        todoTitle.id = "todoTitle";
         todoBody.id = "todoBody";
         todoInputBox.id = "todoInputBox";
         //append
@@ -135,11 +137,12 @@ var projectList = {
         todoBtn.id = 'todoBtn';
         //add innerText
         todoBtn.innerText = 'Add New Todo Item';
+        //add value
+        todoBtn.value = document.getElementById('todoTitle').value;
         //bind events
         todoBtn.addEventListener('click', projectList.inputNewTodo);
         //append
         document.getElementById('todoInputBox').append(todoBtn);
-
     },
     inputNewTodo: function() {
         document.getElementById('todoInputBox').innerHTML = '';
