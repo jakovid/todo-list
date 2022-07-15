@@ -50,6 +50,7 @@ var projectList = {
         project.classList = "project";
         projectName.classList = "projectTitle";
         projectCount.classList = "projectCount";
+        //add 
         //add innerText
         projectName.innerText = name;
         projectName.id = name;
