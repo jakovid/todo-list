@@ -18,6 +18,7 @@ var projectList = {
         this.todoList = document.getElementById('todoList');
     },
     createDefaultProjects: function() {
+        projectList.defaultProjects.innerHTML = '';
         for (let i = 0; i < 2; i++) {
             //create elements
             let project = document.createElement('div');
@@ -123,6 +124,7 @@ var projectList = {
         projectList.addTodoBtn();
     },
     populateTodoList: function(projectNumber) {
+        document.getElementById('todoBody').innerHTML = '';
         for (let i = 1; i < this.projectArrays[projectNumber].length; i++) {
             let todoItem = document.createElement('div');
             todoItem.innerText = projectList.projectArrays[projectNumber][i];
@@ -145,7 +147,6 @@ var projectList = {
         document.getElementById('todoInputBox').append(todoBtn);
     },
     inputNewTodo: function() {
-        document.getElementById('todoInputBox').innerHTML = '';
         //create elements
         let todoInput = document.createElement('input');
         let todoConfirm = document.createElement('button');
@@ -158,6 +159,8 @@ var projectList = {
         //bind events
         todoCancel.addEventListener('click', projectList.addTodoBtn);
         todoConfirm.addEventListener('click', projectList.addNewTodo);
+        //clear todoInputBox
+        document.getElementById('todoInputBox').innerHTML = '';
         //append
         document.getElementById('todoInputBox').append(todoInput,todoConfirm,todoCancel);
     },
@@ -177,8 +180,11 @@ var projectList = {
         document.getElementById('todoBody').append(newTodoBox);
     },
     addNewTodo: function() {
-        projectList.createNewTodo(document.getElementById('todoInput').value);
+        projectList.projectArrays[document.getElementById('todoTitle').value].push(document.getElementById('todoInput').value);
+        console.log(projectList.projectArrays[document.getElementById('todoTitle').value]);
+        projectList.populateTodoList(document.getElementById('todoTitle').value);
         projectList.addTodoBtn();
+        projectList.createDefaultProjects();
     }
 
 }
