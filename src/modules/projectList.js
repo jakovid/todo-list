@@ -19,6 +19,7 @@ var projectList = {
     },
     createDefaultProjects: function() {
         projectList.defaultProjects.innerHTML = '';
+        //loop through and create elements for the array items
         for (let i = 0; i < 2; i++) {
             //create elements
             let project = document.createElement('div');
@@ -41,26 +42,31 @@ var projectList = {
         };
         this.cacheDom();
     },
-    createUserProject: function(name) {
-        //create elements
-        let project = document.createElement('div');
-        let projectName = document.createElement('div');
-        let projectCount = document.createElement('div');
-        //add classnames
-        project.classList = "project";
-        projectName.classList = "projectTitle";
-        projectCount.classList = "projectCount";
-        //add 
-        //add innerText
-        projectName.innerText = name;
-        projectName.id = name;
-        projectCount.innerText = "0";
-        //bind events
-        projectName.onclick = projectList.populateMain;
-        //append items
-        project.append(projectName,projectCount);
-        this.userProjects.append(project);
-        this.cacheDom();
+    createUserProjects: function() {
+        projectList.userProjects.innerHTML = '';
+        //dear future Jacob you need to figure out why this does not append the user projects
+        //loop through and create elements for the array items
+        for (let i = 2; i < projectList.projectArrays.length - 1; i++) {
+            //create elements
+            let project = document.createElement('div');
+            let projectName = document.createElement('div');
+            let projectCount = document.createElement('div');
+            //add classnames
+            project.classList = "project";
+            projectName.classList = "projectTitle";
+            projectCount.classList = "projectCount";
+            //add innerText
+            projectName.innerText = projectList.projectArrays[i][0];
+            projectName.id = projectList.projectArrays[i][0];
+            projectName.value = i;
+            projectCount.innerText = projectList.projectArrays[i].length-1;
+            //bind events
+            projectName.onclick = projectList.populateMain;
+            //append items
+            project.append(projectName,projectCount);
+            projectList.userProjects.append(project);
+        };
+        projectList.cacheDom();
     },
     addProjectBtn: function() {
         projectList.inputProjects.innerHTML = '';
@@ -100,9 +106,10 @@ var projectList = {
     },
     addNewProject: function() {
         // this.cacheDom();
-        projectList.createUserProject(document.getElementById('newProjectInput').value);
+        projectList.projectArrays.push([document.getElementById('newProjectInput').value]);
+        projectList.createUserProjects();
         projectList.addProjectBtn();
-        console.log(projectList.defaultProjectArrays.length);
+        console.log(projectList.projectArrays);
     },
     populateMain: function() {
         projectList.todoList.innerHTML = '';
