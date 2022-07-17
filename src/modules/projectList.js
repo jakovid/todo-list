@@ -192,6 +192,7 @@ var projectList = {
         projectList.populateTodoList(document.getElementById('todoTitle').value);
         projectList.addTodoBtn();
         projectList.createDefaultProjects();
+        projectList.createUserProjects();
     }
 
 }
