@@ -44,9 +44,8 @@ var projectList = {
     },
     createUserProjects: function() {
         projectList.userProjects.innerHTML = '';
-        //dear future Jacob you need to figure out why this does not append the user projects
         //loop through and create elements for the array items
-        for (let i = 2; i < projectList.projectArrays.length - 1; i++) {
+        for (let i = 2; i < projectList.projectArrays.length; i++) {
             //create elements
             let project = document.createElement('div');
             let projectName = document.createElement('div');
