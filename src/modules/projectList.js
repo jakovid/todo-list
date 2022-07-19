@@ -3,7 +3,8 @@ import { todoList } from "./todoList";
 var projectList = {
     buildProjectList: function() {
         this.cacheDom();
-        this.createDefaultProjects();
+        // this.createDefaultProjects();
+        this.createProjects(0,2,'defaultProjects');
         this.addProjectBtn();
     },
     projectArrays: [
@@ -17,10 +18,10 @@ var projectList = {
         this.inputProjects = this.projectListBox.querySelector('#inputProjects');
         this.todoList = document.getElementById('todoList');
     },
-    createDefaultProjects: function() {
-        projectList.defaultProjects.innerHTML = '';
+    createProjects: function(start,end,location) {
+        document.getElementById(location).innerHTML = '';
         //loop through and create elements for the array items
-        for (let i = 0; i < 2; i++) {
+        for (let i = start; i < end; i++) {
             //create elements
             let project = document.createElement('div');
             let projectName = document.createElement('div');
@@ -38,34 +39,9 @@ var projectList = {
             projectName.onclick = projectList.populateMain;
             //append items
             project.append(projectName,projectCount);
-            projectList.defaultProjects.append(project);
+            document.getElementById(location).append(project);
         };
         this.cacheDom();
-    },
-    createUserProjects: function() {
-        projectList.userProjects.innerHTML = '';
-        //loop through and create elements for the array items
-        for (let i = 2; i < projectList.projectArrays.length; i++) {
-            //create elements
-            let project = document.createElement('div');
-            let projectName = document.createElement('div');
-            let projectCount = document.createElement('div');
-            //add classnames
-            project.classList = "project";
-            projectName.classList = "projectTitle";
-            projectCount.classList = "projectCount";
-            //add innerText
-            projectName.innerText = projectList.projectArrays[i][0];
-            projectName.id = projectList.projectArrays[i][0];
-            projectName.value = i;
-            projectCount.innerText = projectList.projectArrays[i].length-1;
-            //bind events
-            projectName.onclick = projectList.populateMain;
-            //append items
-            project.append(projectName,projectCount);
-            projectList.userProjects.append(project);
-        };
-        projectList.cacheDom();
     },
     addProjectBtn: function() {
         projectList.inputProjects.innerHTML = '';
@@ -104,9 +80,8 @@ var projectList = {
         projectList.inputProjects.append(newProjectBox);
     },
     addNewProject: function() {
-        // this.cacheDom();
         projectList.projectArrays.push([document.getElementById('newProjectInput').value]);
-        projectList.createUserProjects();
+        projectList.createProjects(2,projectList.projectArrays.length,'userProjects');
         projectList.addProjectBtn();
         console.log(projectList.projectArrays);
     },
@@ -191,8 +166,8 @@ var projectList = {
         console.log(projectList.projectArrays[document.getElementById('todoTitle').value]);
         projectList.populateTodoList(document.getElementById('todoTitle').value);
         projectList.addTodoBtn();
-        projectList.createDefaultProjects();
-        projectList.createUserProjects();
+        projectList.createProjects(0,2,'defaultProjects');
+        projectList.createProjects(2,projectList.projectArrays.length,'userProjects');
     }
 
 }
