@@ -8,7 +8,7 @@ var projectList = {
         this.addProjectBtn();
     },
     projectArrays: [
-        ['Today', 'Build Apple'],
+        ['Today', 'Build Apple', 'Hit the burrito'],
         ['This Week', 'Jump in a cannon', 'Kiss a frog']
     ],
     cacheDom: function() {
