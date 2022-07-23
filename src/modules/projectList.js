@@ -9,7 +9,7 @@ var projectList = {
     },
     projectArrays: [
         ['Today', 'Build Apple', 'Hit the burrito'],
-        ['This Week', 'Jump in a cannon']
+        ['Upcoming', 'Jump in a cannon']
     ],
     cacheDom: function() {
         this.projectListBox = document.getElementById('projectList');
