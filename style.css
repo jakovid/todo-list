@@ -80,6 +80,11 @@
     gap: 1rem;
 }
 
+.todoContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 /* footer */
 
 #footerBox {

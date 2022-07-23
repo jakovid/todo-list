@@ -108,9 +108,20 @@ var projectList = {
     populateTodoList: function(projectNumber) {
         document.getElementById('todoBody').innerHTML = '';
         for (let i = 1; i < this.projectArrays[projectNumber].length; i++) {
+            //create elements
+            let todoContainer = document.createElement('div');
             let todoItem = document.createElement('div');
+            let completeTodo = document.createElement('button');
+            let deleteTodo = document.createElement('button');
+            //add classes
+            todoContainer.classList = 'todoContainer';
+            //add inner text
             todoItem.innerText = projectList.projectArrays[projectNumber][i];
-            document.getElementById('todoBody').append(todoItem);
+            completeTodo.innerText = 'complete';
+            deleteTodo.innerText = 'delete';
+            //append items
+            todoContainer.append(todoItem,completeTodo,deleteTodo);
+            document.getElementById('todoBody').append(todoContainer);
         }
     },
     addTodoBtn: function () {
