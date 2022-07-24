@@ -186,8 +186,6 @@ var projectList = {
         projectList.reloadProjectList();
     },
     deleteTodoItem: function(projectNumber, arrayNumber) {
-        console.log(projectNumber);
-        console.log(arrayNumber);
         projectList.projectArrays[projectNumber].splice(arrayNumber,1);
         projectList.populateTodoList(projectNumber);
         projectList.reloadProjectList();
@@ -196,7 +194,6 @@ var projectList = {
         projectList.createProjects(0,2,'defaultProjects');
         projectList.createProjects(2,projectList.projectArrays.length,'userProjects');
     }
-
 }
 
 var todoLists = {
