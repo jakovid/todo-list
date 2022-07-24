@@ -36,7 +36,7 @@ var projectList = {
             projectName.value = i;
             projectCount.innerText = projectList.projectArrays[i].length-1;
             //bind events
-            projectName.onclick = projectList.populateMain;
+            projectName.addEventListener('click', projectList.populateMain);
             //append items
             project.append(projectName,projectCount);
             document.getElementById(location).append(project);
@@ -119,6 +119,12 @@ var projectList = {
             todoItem.innerText = projectList.projectArrays[projectNumber][i];
             completeTodo.innerText = 'complete';
             deleteTodo.innerText = 'delete';
+            //add value
+            deleteTodo.value = i;
+            //bind events
+            deleteTodo.addEventListener('click', e => {
+                projectList.deleteTodoItem(projectNumber,i);
+            });
             //append items
             todoContainer.append(todoItem,completeTodo,deleteTodo);
             document.getElementById('todoBody').append(todoContainer);
@@ -177,6 +183,16 @@ var projectList = {
         console.log(projectList.projectArrays[document.getElementById('todoTitle').value]);
         projectList.populateTodoList(document.getElementById('todoTitle').value);
         projectList.addTodoBtn();
+        projectList.reloadProjectList();
+    },
+    deleteTodoItem: function(projectNumber, arrayNumber) {
+        console.log(projectNumber);
+        console.log(arrayNumber);
+        projectList.projectArrays[projectNumber].splice(arrayNumber,1);
+        projectList.populateTodoList(projectNumber);
+        projectList.reloadProjectList();
+    },
+    reloadProjectList: function() {
         projectList.createProjects(0,2,'defaultProjects');
         projectList.createProjects(2,projectList.projectArrays.length,'userProjects');
     }
